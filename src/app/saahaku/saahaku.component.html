@@ -1,0 +1,25 @@
+<!--Angular noudattaa MVC tai MVVM-arkkitehtuuria
+(riippuen näkökulmasta).
+HTML-templaatti on Angular-sovelluksen View-->
+
+<!--Tässä on Angularin lomake, jonka avulla haetaan
+tuotteita "tietokannasta" ID:n perusteella.-->
+
+<!--Jos tuote löydetään, se näkyy tässä:-->
+
+<div class="saatiedot">
+  <h1>lämpötilahaku</h1>
+
+  <h2>Hae kunnan lämpötilatiedot</h2>
+
+  <form #f="ngForm" (ngSubmit)="getProductByIDFetch(f.value)" novalidate>
+    <label for="productID">Enter ID: </label>
+    <input id="productID" type="text" name="productID" ngModel />
+    <button type="submit">Find Product</button>
+  </form>
+  <div *ngIf="kuntaNimi">
+    <h4>{{ kuntaNimi }} <br />sää huomenna: {{ huomisensaa }}C</h4>
+  </div>
+
+  <small>Tiedot:Ilmatieteen laitoksen julkinen data, Tekijä:Jonne Miettinen</small>
+</div>
